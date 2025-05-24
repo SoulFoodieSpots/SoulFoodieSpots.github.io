@@ -5,8 +5,88 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SoulFoodieSpots</title>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+    }
+
+    .hero-header {
+      background: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80') no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 3em 1em;
+      box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.5);
+    }
+
+    .hero-header h1 {
+      font-family: 'Alfa Slab One', serif;
+      margin: 0;
+      font-size: 3em;
+    }
+
+    .hero-header p {
+      margin-top: 0.5em;
+      font-size: 1.2em;
+    }
+
+    .filter {
+      padding: 1em 2em;
+      background: #fff;
+      text-align: center;
+    }
+
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5em;
+      padding: 2em;
+    }
+
+    .card {
+      background: white;
+      text-decoration: none;
+      color: black;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1em;
+    }
+
+    .card h2 {
+      margin: 0 0 0.5em;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 0.95em;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
   <header class="hero-header">
@@ -22,7 +102,7 @@
 
   <section id="map-section">
     <h2>Map View</h2>
-    <div id="map" style="height: 400px;"></div>
+    <div id="map"></div>
   </section>
 
   <main>
@@ -90,7 +170,8 @@
       const gmapsLink = `https://www.google.com/maps/dir/?api=1&destination=${restaurant.lat},${restaurant.lng}`;
       const marker = L.marker([restaurant.lat, restaurant.lng])
         .addTo(map)
-        .bindPopup(`<strong>${restaurant.name}</strong><br><a href="${gmapsLink}" target="_blank">Get Directions</a>`);
+        .bindPopup(`<strong>${restaurant.name}</strong><br><a href="${gmapsLink}" target="_blank">Get Directions</a>`)
+        .bindTooltip(restaurant.name, { permanent: true, direction: 'top' });
       markers.push(marker);
     }
 
