@@ -53,7 +53,6 @@
 
     .card {
       background: white;
-      text-decoration: none;
       color: black;
       border-radius: 10px;
       overflow: hidden;
@@ -67,7 +66,7 @@
       transform: scale(1.03);
     }
 
-    .card img {
+    .card a img {
       width: 100%;
       height: 180px;
       object-fit: cover;
@@ -85,6 +84,11 @@
       margin: 0.3em 0;
       font-size: 0.95em;
       color: #555;
+    }
+
+    .card a {
+      color: #007BFF;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -188,15 +192,17 @@
     function addCard(r) {
       const container = document.getElementById("restaurantCards");
       container.innerHTML += `
-        <a href="${r.url}" class="card" target="_blank">
-          <img src="${r.img}" alt="${r.name}" />
+        <div class="card">
+          <a href="${r.url}" target="_blank">
+            <img src="${r.img}" alt="${r.name}" />
+          </a>
           <div class="card-content">
             <h2>${r.name}</h2>
             <p><strong>Address:</strong> ${r.address}</p>
             <p><strong>Phone:</strong> <a href="tel:${r.phone.replace(/\D/g, '')}">${r.phone}</a></p>
             <p>${r.desc}</p>
           </div>
-        </a>
+        </div>
       `;
     }
 
