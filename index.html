@@ -1,3 +1,72 @@
+<section class="contact-form">
+  <h2>Get Featured or Send Feedback</h2>
+  <form action="#" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<style>
+  .contact-form {
+    background: #fff;
+    padding: 2em;
+    max-width: 600px;
+    margin: 2em auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 1em;
+  }
+
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 1em;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+  }
+
+  .contact-form button {
+    padding: 1em;
+    font-size: 1.1em;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+</style>
+Add this code just before the closing </body> tag in your HTML, and you'll have a fully styled contact form embedded on your site. Let me know if you want to hook it up to a specific service!
+
+
+
+
+
+You said:
+Can you provide the entire code back to me with the updated information.
+
+
+ChatGPT said:
+Here is your full HTML file with the contact form integrated at the end, just before the </body> tag. All other content remains unchanged:
+
+html
+Copy
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,6 +212,49 @@
       color: #007BFF;
       text-decoration: none;
     }
+
+    .contact-form {
+      background: #fff;
+      padding: 2em;
+      max-width: 600px;
+      margin: 2em auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    .contact-form h2 {
+      margin-bottom: 1em;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 1em;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      width: 100%;
+    }
+
+    .contact-form button {
+      padding: 1em;
+      font-size: 1.1em;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #0056b3;
+    }
   </style>
 </head>
 <body>
@@ -165,6 +277,16 @@
   <main>
     <div class="card-grid" id="restaurantCards"></div>
   </main>
+
+  <section class="contact-form">
+    <h2>Get Featured or Send Feedback</h2>
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Submit</button>
+    </form>
+  </section>
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
