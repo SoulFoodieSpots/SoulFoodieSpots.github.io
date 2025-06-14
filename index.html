@@ -93,8 +93,17 @@ const app = initializeApp(firebaseConfig);
 </script>
 <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+document.querySelector(".contact-form form").addEventListener("submit", async function(e) {
+  e.preventDefault();
+  const name = this.name.value;
+  const email = this.email.value;
+  const message = this.message.value;
 
+  await db.collection("feedback").add({ name, email, message, timestamp: new Date() });
 
+  alert("Thank you! Your message has been submitted.");
+  this.reset();
+});
 
 <!DOCTYPE html>
 <html lang="en">
